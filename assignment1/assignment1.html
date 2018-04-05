@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 1</title>
+</head>
+<body >
+	<p>Car name is <span id="carname"></span></p>
+	<p>Number is <span id="num"></span></p>
+	<p id="sum"></p>
+	<p id="sum1"></p>
+	<p>Constant value is <span id="constant"></span></p>
+	<div id="variable"></div>
+	<script type="text/javascript">
+			console.log("Hi");
+			var carName = "Honda City" , number = 150 , x = 5 , y = 10;
+			document.getElementById("carname").innerHTML = carName;
+			document.getElementById("num").innerHTML = number;
+			document.getElementById("sum").innerHTML = "Sum of " + x + " and" + y + " is " + (x+y);
+			var z = x+y;
+			document.getElementById("sum1").innerHTML = "Sum using z is " + z;
+			var firstName = "John" , lastName = "Doe" , age = 35;
+			const DOB = calculateAge();
+			function calculateAge(){
+				return x * y;
+			}
+			document.getElementById("constant").innerHTML = DOB;
+			var test = "It works!";
+			document.getElementById("variable").innerHTML = "Variable from div says " + test;
+			window.alert(test);
+
+	</script>
+</body>
+</html>
