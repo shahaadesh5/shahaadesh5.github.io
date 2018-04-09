@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 2</title>
+	<style type="text/css">
+		.buttons { margin-top: 20px; overflow: hidden; display: block; }
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<p>Initiially value of counter = 0</p>
+		<button onclick="one()" class="buttons">Click to Implement counter++</button>
+		<br>
+		<button onclick="one()" class="buttons">Click to Implement ++counter</button>
+		<br>
+		<button onclick="answer1()" class="buttons"> Why This happened?</button>
+		<p style="margin-top: 5px; font-weight: bold;">
+			Answer 1 :
+		</p>
+		<div id="answer1">
+		</div>
+
+		<button class="buttons" onclick="three()">Click to check value of N</button>
+		<button onclick="answer2()" class="buttons"> Why This happened?</button>
+
+		<p style="margin-top: 5px; font-weight: bold;">
+			Answer 2 :
+		</p>
+		<div id="answer2">
+		</div>
+		<button class="buttons" onclick="four()">Click to check value of 3rd Problem</button>
+		<div>
+			<p>Value of c is <span id="answer3c"></span></p>
+			<p>Value of d is <span id = "answer3d"></span></p>
+		</div>
+		<button class="buttons" onclick="five()">Click to check value of 4th Problem</button>
+		<p id="answer4a"></p>
+		<p id="answer4x"></p>
+		<button class="buttons" onclick="six()">Click to check value of 5th Problem</button>
+		<p id="answer5"></p>
+		<button class="buttons" onclick="seven()">Click to check value of 6th Problem</button>
+		<button class="buttons" onclick="eight()">Click to check value of 7th Problem</button>
+		<button class="buttons" onclick="nine()">Click to check value of 8th Problem</button>
+		<button class="buttons" onclick="ten()">Click to check value of 9th Problem</button>
+		<button class="buttons" onclick="eleven()">Click to check value of last Problem</button>
+	</div>
+
+</body>
+<script type="text/javascript">
+	var counter = 0;
+	function one(){
+		alert (counter++);
+	}
+	function two(){
+	++counter;
+	alert( counter );
+}
+	function answer1(){
+		document.getElementById("answer1").innerHTML = "When you use the increment/decrement operator after the operand, the value will be returned before the operand is increased/decreased. But using ++ or -- prior to our variable, the operation executes and adds/subtracts 1 prior to returning.";
+	}
+	function three(){
+		var n = 2;
+		n *= 3 + 5;
+		alert( n );
+	}
+	function answer2(){
+		document.getElementById("answer2").innerHTML = " This happened because it multiplied the value of n with the result of 3+5. that's how the value 16 was calculated. n = 2*(3+5)"
+
+	}
+	function four(){
+		var a = 1, b = 1; 
+		var c = ++a; 
+		var d = b++;
+		document.getElementById("answer3c").innerHTML = c; 
+		document.getElementById("answer3d").innerHTML = d;
+	}
+	function five(){
+		var a = 2; var x = 1 + (a *= 2);
+		document.getElementById("answer4a").innerHTML = "Value of a is " +a;
+		document.getElementById("answer4x").innerHTML = "Value of x is " +x
+	}
+	function six(){
+		var num1 = 10, num2 = 20, num3 = 30, num4 = 5;
+		var max1, max2 , max;
+		if (num1 > num2)
+			max1 = num1;
+		else
+			max1 = num2;
+		if (num3 > num4)
+			max2 = num3;
+		else
+			max2 = num4;
+		if (max1 > max2)
+			max = max1;
+		else
+			max = max2;
+
+		document.getElementById("answer5").innerHTML = "Maximum amongst 10, 20, 30 and 5 is " +max;
+
+	}
+	function seven(){
+		var a = 7, b =2;
+		var c = a+b;
+		var result = c < 4 ? 'Below' : 'Above';
+		alert(result);
+	}
+	function eight(){
+		var a = +prompt('a?', '');
+		switch(a){
+			case 0:
+			alert(0);
+			break;
+			case 1:
+			alert(1);
+			break;
+			case 2:
+			case 3:
+			alert('2,3');
+			break;
+			default:
+			alert('Default case');
+			break;
+		}
+	}
+	function nine(){
+		var age = +prompt('age?','');
+		if(age <= 19)
+			alert ("Person is a teenager, Abhi kuch saal baaki hai!!");
+		else
+			alert ("Person is not a teenager, Link his/her Aadhar to Bank Account!");
+	}
+	function ten(){
+		var d = new Date();
+		var n = d.getDay();
+		switch(n){
+			case 1:
+			alert("Its Monday!");
+			break;
+			case 2:
+			alert("Its Tuesday!");
+			break;
+			case 3:
+			alert("Its Wednesday!");
+			break;
+			case 4:
+			alert("Its Thursday!");
+			break;
+			case 5:
+			alert("Its Friday!");
+			break;
+			case 6:
+			case 7:
+			alert("Weekend is here!");
+			break;
+			default:
+			alert("Default case");
+			break;
+		}
+	}
+	function eleven(){
+		var today = new Date();
+		var h = today.getHours();
+		alert("Its " +h+ " hours");
+		if (h>=6 && h<=17) {
+			document.body.style.background = "yellow";
+		}
+		else if (h>17 && h<=23){
+			document.body.style.background = "blue";
+			document.getElementById("wrapper").style.color = "white";
+		}
+		else {
+			document.body.style.background = "black";
+		}
+	}
+</script>
+</html>
