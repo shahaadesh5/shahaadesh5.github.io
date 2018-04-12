@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>Question 1</p>
+<code>
+	function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Did parents allow you?');
+  }
+}
+
+function checkAge(age) {
+  if (age > 18) {
+    return true;
+  }
+ return confirm('Did parents allow you?');
+}
+</code>
+<div>
+<button onclick="answer1()">Answer1</button>
+</div>
+<div id="answer1"></div>
+<div style="margin-top: 20px; ">
+<button onclick="checkAge(18)">Try function1</button>
+<button onclick="checkAge1(19)">Try function2</button>
+</div>
+<div>
+	<button onclick="answer2(15)">Answer2</button>
+</div>
+<div>
+	<button onclick="answer3(5,10)">Answer3</button>
+</div>
+<div>
+	<button onclick="answer4()">Answer4</button>
+</div>
+<div id="primenumbers"></div>
+</body>
+<div>
+	<button onclick="answer5()">Answer5</button>
+	<p id="answer5"></p>
+</div>
+<div>
+	<button onclick="declaration()">Function Declaration</button>
+	<button onclick="exp()">Function Expression</button>
+	<p id="answer6a"></p>
+	<p id="answer6b"></p>
+</div>
+<div>
+	<button onclick="multiply(2,4,2,3)">Multiply N Numbers</button>
+</div>
+<p>Previous Assignments Examples</p>
+<button onclick="example1(5,6)">Example 1</button>
+<button onclick="example2(3)">Example 2</button>
+<button onclick="example3()">Example 3</button>
+<button onclick="example4(6,2)">Example 4</button>
+<button onclick="example5(10,9,1,80)">Example 5</button>
+<script type="text/javascript">
+ function answer1(){
+		document.getElementById("answer1").innerHTML = "first one will return true if age passed is greater than 18 or else will return Confirmation 'did parents allow you' whereas second one will return true if age passed is greater than 18 and will always return Confirmation 'did parents allow you' whether age is greater than 18 or not";
+	}
+	function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Did parents allow you?');
+  }
+}
+
+function checkAge1(age) {
+  if (age > 18) {
+    return true;
+  }
+ return confirm('Did parents allow you?');
+}
+function answer2(age){
+		var ans = age > 18 ? true : confirm('Did parents allow you?');
+		alert(ans);
+}
+function answer3(num1, num2) {
+		var result = num1 > num2 ? num2 : num1;
+		alert("Number " +result+ " is smaller");
+}
+function answer4(){
+	var i,j, flag;
+	for ( i = 2; i<100; i++)
+	{
+		flag = 0;
+		for (j = 2; j<=i/2; j++)
+		{
+			if (i%j == 0) {
+				flag = 1;
+				break;
+			}
+			
+		}
+		if (flag == 0) {
+
+				document.getElementById("primenumbers").innerHTML = "Check console";
+				console.log(i);
+		}
+	}
+}
+function answer5(){
+				document.getElementById("answer5").innerHTML = "Check console";
+	console.clear();
+var v, getValue;
+v = 1;
+getValue = function () { return v; };
+console.log(getValue());
+}
+
+function declaration(){
+	console.log("This is Func declaration");
+	document.getElementById("answer6a").innerHTML = "Check console";
+}
+var exp = function exp() { 
+	console.log("This is Func expression");
+	document.getElementById("answer6b").innerHTML = "Check console";
+	}
+
+	function multiply(){
+		var i=0, result = 1;
+		for (i = 0; i < arguments.length; i++) {
+        result *= arguments[i];
+    }
+    alert("Multiplication is "+result);
+	}
+	function example1(a,b){
+		alert("Sum is "+(a+b));
+	}
+	function example2(check) {
+		if (check%2==0) {
+			alert("Number is even");
+		}
+		else
+		{
+			alert("Number is odd");
+		}
+	}
+	function example3(){
+
+		var today = new Date();
+		var h = today.getHours();
+		var m = today.getMinutes();
+		var s = today.getSeconds();
+		alert("Time is " +h+ " : " +m+ " : " +s );
+		var lights = confirm("Do you want to turn off lights?");
+		if (lights) {
+			alert("Dark mode on!");
+			document.body.style.background = "black";
+		}
+		else{
+			alert("Its too bright!")
+			document.body.style.background = "yellow";
+		}
+	}
+	function example4(number1, number2){
+		var a = +prompt('What do you want to do?(1 for Addition/2 for Subtraction/3 for Multiplication/4 for Division)', '');
+		switch(a){
+			case 1:
+			var res = number1 + number2;
+			alert("Addition is " +res);
+			break;
+			case 2:
+			var res = number1 - number2;
+			alert("Subtraction is " +res);
+			break;
+			case 3:
+			var res = number1 * number2;
+			alert("Multiplication is " +res);
+			break;
+			case 4:
+			var res = number1 / number2;
+			alert("Division is " +res);
+			break;
+			default:
+			alert('Wrong Input!');
+			break;
+		}
+	}
+	function example5(num1, num2, num3, num4){
+		var max1, max2 , max;
+		if (num1 > num2)
+			max1 = num1;
+		else
+			max1 = num2;
+		if (num3 > num4)
+			max2 = num3;
+		else
+			max2 = num4;
+		if (max1 > max2)
+			max = max1;
+		else
+			max = max2;
+		alert("Highest number passed is " +max);
+	}
+</script>
+</html>
