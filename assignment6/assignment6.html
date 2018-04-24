@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body { margin: 0; padding: 0; list-style: none; }
+	ul { list-style: none; }
+		.top-area { height: 200px; }
+		nav{ height: 50px;background: cyan; }
+		nav .menu-item { display: inline-block; margin-left: 20px; cursor: pointer; padding: 10px 0; }
+		.sticky { position: fixed; top: 0; width: 100%; }
+		.dropdown { position: absolute; visibility: hidden; padding: 0; background-color: red; cursor: pointer; }
+		.dropdown li { margin-top: 10px; padding: 3px; color: #fff; border-bottom: 1px solid #fff; }
+		.dropdown #level3 { visibility: hidden; background: #000; color: #000; }
+	</style>
+</head>
+<body>
+<button onclick="palindrome()">Check Palindrome</button>
+<button onclick="fibonacci()">Generate Fibonacci series</button>
+<button onclick="maximum()">Get max </button>
+<button onclick="minimum()">Get min </button>
+<button onclick="getUrlParameter('post')">Get Param </button>
+<button onclick="tabs()">Tabs </button>
+<div id="tabs-div">
+	
+</div>
+<header>
+	<div class="top-area"></div>
+	<nav id="navbar">
+		<ul>
+			<li class="menu-item">Navbar</li>
+			<li class="menu-item">Menu Item 1</li>
+			<li class="menu-item">Menu Item 2</li>
+			<li class="menu-item" onMouseOver="show_dropdown()" onMouseOut="hide_dropdown()">Dropdown
+				<ul class="dropdown" id="level2">
+					<li>Dropdown item 1</li>
+					<li onMouseOver="show_dropdown2()" onMouseOut="hide_dropdown2()">Dropdown next level
+						<ul class="dropdown" id="level3">
+						<li>Level 3 item 1</li>
+						<li>Level 3 item 1</li>
+					</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</header>
+<div>
+	<h1>Section 1</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <h1>Section 2</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <h1>Section 3</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <h1>Section 4</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <h1>Section 5</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <h1>Section 5</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <h1>Section 6</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <h1>Section 7</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+
+<script type="text/javascript">
+	function palindrome(){
+		var testString = prompt('Enter String', '');//Getting string from user
+		var stringAr = testString.split('');//Converting string to array elements
+		var revAr = stringAr.reverse().join('');// Reversing the character array and storing in another array and then re converting new array to string
+		//comparing new string with entered string and alerting whether old string  is palindrome or not
+		if (testString == revAr) {
+			alert(testString+" is a palindrome!");
+		}
+		else {
+			alert(testString+" is not a palindrome!");
+		}	
+	}
+	function fibonacci(){
+		var limit = prompt('Enter limit',''); // grtting limit from user
+		//checking if anything other than number is entered
+		if(isNaN(limit)) {
+			alert("There should be no strings attached!");
+			return;
+		}
+		var i; // counter initialization
+		var fib = []; // Initialize array
+
+		fib[0] = 0; //setting initial two values of series to generate sequence
+		fib[1] = 1;
+		for(i=2; i<=limit; i++)
+		{
+		    // Next fibonacci number = previous + one before previous
+		    fib[i] = fib[i-2] + fib[i-1];
+		    console.log(fib[i]);
+		}
+	}
+	function maximum(){
+		var valueString = prompt('Enter values in for array separated by spaces',''); // taking values from users
+		var num = valueString.split(' '); // converting string to array
+		var max = -999;// initialize -999 as max
+		var len = num.length;
+		while (len--) {
+			num[len] = parseInt(num[len]);  // getting only numeric values in array for processing
+	        if (num[len] > max) {  // comparing for max value
+	            max = num[len];  // changing max if current max is less than current array element
+	        }
+    	}
+			alert("Max value is "+max); // output the max value
+		}
+
+	function minimum(){
+		var valueString = prompt('Enter values in for array separated by spaces',''); // taking values from users
+		var num = valueString.split(' '); // converting string to array
+		var min = 999;// initialize 999 as min
+		var len = num.length;
+		while (len--) {
+			num[len] = parseInt(num[len]);  // getting only numeric values in array for processing
+	        if (num[len] < min) {  // comparing for min value
+	            min = num[len];  // changing min if current min is less than current array element
+	        }
+    	}
+			alert("Min value is "+min); // output the min value
+		}
+
+		function getUrlParameter(name) {
+		    var fullUrl = window.location.search.substring(1); //return only the query part
+		    var paramArray = fullUrl.split('&');// store the url query part in array splitted on &
+		    for( var i=0; i<paramArray.length;i++)
+		    {
+		    	var curParam = paramArray[i].split('='); // split the parameters on = and store it in another array 
+		    	if (curParam[0] == name) { //compare the parameters with name passed in function and alert the value if found
+		    		alert("Paramater value for "+name+" is "+curParam[1]);
+		    	}
+		    }
+		}
+		window.onscroll = function() {stickyNav()}; // onscroll calling the stickyNav function
+
+		var header = document.getElementById("navbar");
+		var sticky = header.offsetTop;  // checking the pixels above the header and returning it to sticky var
+
+		function stickyNav() {
+		  if (window.pageYOffset >= sticky) {  // if the page y offset is greater than the header top offset that is if it passes through the header then add class sticky to it else remove it
+		    header.classList.add("sticky");
+		  } else {
+		    header.classList.remove("sticky");
+		  }
+		}
+			// toggling visibility of sub menu levels on onMouseOver and onMouseOut events 
+		function show_dropdown(){
+			document.getElementById("level2").style.visibility = "visible";
+		}
+		function hide_dropdown(){
+			document.getElementById("level2").style.visibility = "hidden";
+		}
+		function show_dropdown2(){
+			document.getElementById("level3").style.visibility = "visible";
+		}
+		function hide_dropdown2(){
+			document.getElementById("level3").style.visibility = "hidden";
+		}
+
+		function tabs(){
+			var tabs = [
+			{ tab1: "content1"},
+			{ tab2: "content2" }
+			];
+			tabs.tab3 = "content3";
+			alert(tabs.length);
+			for(var i=0; i<tabs.length;i++){
+				var iDiv = document.createElement('button');
+				iDiv.id = i;
+				iDiv.style.display = 'inline-block';
+				document.getElementById('tabs-div').appendChild(iDiv);
+			}
+		}
+	</script>
+</body>
+</html>
