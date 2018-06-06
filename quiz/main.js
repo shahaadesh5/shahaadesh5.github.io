@@ -52,13 +52,13 @@
 
   function buildQuiz() {
     myQuestions.push({
-      question: "What is the year?",
+      question: "What year did Iron Man 2 release?",
       answers: {
         a: "2010",
         b: "2015",
         c: "2018"
       },
-      correctAnswer: "c"
+      correctAnswer: "a"
     });
     const output = [];
     myQuestions.forEach((currentQuestion, questionNumber) => {
